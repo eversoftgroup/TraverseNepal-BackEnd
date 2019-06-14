@@ -17,7 +17,7 @@ public class User implements Serializable{
 	
 	@Id
 	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name="firstName")
@@ -89,6 +89,24 @@ public class User implements Serializable{
 	public void setVisaId(int visaId) {
 		this.visaId = visaId;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
+				+ ", nationality=" + nationality + ", dateOfBirth=" + dateOfBirth + ", visaId=" + visaId + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
+	
+	
 	
 	
 }

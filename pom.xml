@@ -18,7 +18,8 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${org.springframework-version}</version>
+			<version>5.0.14.RELEASE</version>
+			<!-- <version>${org.springframework-version}</version> -->
 			<exclusions>
 				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
@@ -30,7 +31,8 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework-version}</version>
+			<version>5.0.14.RELEASE</version>
+			<!-- <version>${org.springframework-version}</version> -->
 		</dependency>
 		
 		<!-- Added Later by Bikalpa -->
@@ -41,7 +43,11 @@
 		  <version>8.0.15</version>
 		</dependency>
 		
-		
+		<dependency>
+		  <groupId>com.fasterxml.jackson.core</groupId>
+		  <artifactId>jackson-databind</artifactId>
+		  <version>2.9.9</version>
+		</dependency>
 		<!-- ** -->
 				
 		<!-- AspectJ -->
@@ -132,6 +138,11 @@
 		  <type>pom</type>
 		</dependency>
 		
+		<!-- <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-web</artifactId>
+		  <version>5.1.7.RELEASE</version>
+		</dependency> -->
 		
 		<!--  -->
 	
