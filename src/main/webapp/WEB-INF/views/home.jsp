@@ -10,6 +10,8 @@
 <br/>
 
 <p>API syntax:</p>
+<p>Available endpoins:</p>
+<b>user</b><br /><b>itineraryList</b>
 
 <table class="table table-striped">
   <thead>

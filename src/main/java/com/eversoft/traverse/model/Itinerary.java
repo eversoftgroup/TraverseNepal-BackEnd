@@ -1,13 +1,44 @@
 package com.eversoft.traverse.model;
 
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="itineraryList")
 public class Itinerary {
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name="name")
 	private String name;
+	
+	@Column(name="allocatedBudget")
 	private double allocatedBudget;
+	
+	@Column(name="priorityID")
 	private int priorityID;
+	
+	@Column(name="placeName")
 	private String placeName;
+	
+	@Column(name="locationId")
 	private int locationId;
+	
+	@Column(name="userId")
 	private int userId;
+	
+	@Column(name="description")
 	public String description;
 	
 	public Itinerary() {
@@ -76,6 +107,13 @@ public class Itinerary {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "ItineraryList [id=" + id + ", name=" + name + ", allocatedBudget=" + allocatedBudget + ", priorityID=" + priorityID
+				+ ", placeName=" + placeName + ", locationId=" + locationId + ", userId=" + userId + ", description=" + description +"]";
 	}
 	
 	
