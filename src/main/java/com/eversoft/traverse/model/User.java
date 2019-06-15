@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="users")
@@ -20,23 +21,26 @@ public class User implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="firstName")
+	@Column(name="first_name")
 	private String firstName;
 	
-	@Column(name="middleName")
+	@Column(name="middle_name")
 	private String middleName;
 	
-	@Column(name="lastName")
+	@Column(name="last_name")
 	private String lastName;
 	
 	@Column(name="nationality")
 	private String nationality;
 	
-	@Column(name="dateOfBirth")
+	@Column(name="date_of_birth")
 	public Date dateOfBirth;
 	
 	@Column(name="visaId")
 	private int visaId;
+	
+	@Transient
+	private VisaInformation visaInformation;
 	
 	public User() {
 		
@@ -103,6 +107,15 @@ public class User implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public VisaInformation getVisaInformation() {
+		return visaInformation;
+	}
+
+	public void setVisaInformation(VisaInformation visaInformation) {
+		this.visaInformation = visaInformation;
+	}
+	
 	
 	
 	

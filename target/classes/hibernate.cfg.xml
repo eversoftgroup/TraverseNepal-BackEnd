@@ -20,6 +20,7 @@
  
  		<mapping class="com.eversoft.traverse.model.User" />
  		<mapping class="com.eversoft.traverse.model.Itinerary" />
+ 		<mapping class="com.eversoft.traverse.model.VisaInformation"/>
         <!-- Mapping With Model Class Containing Annotations -->
         <!-- <mapping class="com.jcg.hibernate.crud.operations.Student" /> -->
     </session-factory>

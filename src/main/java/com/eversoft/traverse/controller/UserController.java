@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eversoft.traverse.model.User;
+import com.eversoft.traverse.model.VisaInformation;
 import com.eversoft.traverse.service.UserService;
+import com.eversoft.traverse.service.VisaInformationService;
 
 @RestController
 @RequestMapping("/user")
@@ -23,6 +25,9 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	VisaInformationService visaService;
 	
 //	@RequestMapping(value="/add", method = RequestMethod.GET)
 //	public String addUserDummy(Model model) {
@@ -59,10 +64,19 @@ public class UserController {
 	@RequestMapping(value="/get", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getUserById(@RequestParam(value="id") int id) {
 		User user = userService.getUserById(id);
+		VisaInformation visaInfo = visaService.getVisaInformationById(user.getVisaId());
+		user.setVisaInformation(visaInfo);
 		System.out.println("GET USER: " + user);
 		return user;
 	}
 	
+//	@RequestMapping(value="/get", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+//	public User getUserById(@RequestParam(value="id") int id) {
+//		User user = userService.getUserById(id);
+//		System.out.println("GET USER: " + user);
+//		return user;
+//	}
+//	
 	@RequestMapping(value="/add", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public boolean addNewUser(@RequestBody User user) {
 		boolean added =  userService.createUser(user);
