@@ -21,6 +21,7 @@
       <th scope="col">Request Method</th>
       <th scope="col">Request Body</th>
       <th scope="col">Params</th>
+      <th scope="col">Returns</th>
       
     </tr>
   </thead>
@@ -31,6 +32,7 @@
       <td>POST</td>
       <td>JSON Entry</td>
       <td>-</td>
+      <td>boolean</td>
     </tr>
     <tr>
       <td>Update Entry</td>
@@ -38,6 +40,7 @@
       <td>POST</td>
       <td>JSON Entry</td>
       <td>id</td>
+      <td>boolean</td>
     </tr>
     <tr>
       <td>Get By ID</td>
@@ -45,6 +48,7 @@
       <td>GET</td>
       <td>-</td>
       <td>id</td>
+      <td>application/JSON</td>
     </tr>
     <tr>
       <td>Get ALl</td>
@@ -52,6 +56,7 @@
       <td>GET</td>
       <td>-</td>
       <td>-</td>
+      <td>application/JSON</td>
     </tr>
     
     <tr>
@@ -60,6 +65,7 @@
       <td>GET</td>
       <td>-</td>
       <td>id</td>
+      <td>boolean</td>
     </tr>
   </tbody>
 </table>
