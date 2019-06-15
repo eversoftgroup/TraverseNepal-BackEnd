@@ -9,15 +9,40 @@
 
 <br/>
 
-<p>API syntax:</p>
-<p>Available endpoins:</p>
-<b>user</b><br /><b>itineraryList</b>
+<h3>Available Endpoints:</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">endpoint</th>
+      <th scope="col">Method applicable</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td>1</td>
+      <td>/user</td>
+      <td>/get, /getall, /create, /update, /delete</td>
+    </tr>
+    
+     <tr>
+    <td>2</td>
+      <td>/itinerary</td>
+      <td>/getall, /create, /update, /delete</td>
+    </tr>
+   
+  </tbody>
+</table>
 
+
+<br/>
+<h3>API methods:</h3>
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Operation</th>
-      <th scope="col">endpoint</th>
+      <th scope="col">API method</th>
       <th scope="col">Request Method</th>
       <th scope="col">Request Body</th>
       <th scope="col">Params</th>
