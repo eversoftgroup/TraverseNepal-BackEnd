@@ -1,16 +1,53 @@
 package com.eversoft.traverse.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_login")
 public class UserLogin {
-	private String username;
-	private String email;
-	private String password;
-	private String hashValue;
-	private String role;
 	
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(name="username")
+	private String username;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="password_hash")
+	private String passwordHash;
+	
+	@Column(name="password_salt")
+	private String passwordSalt;
+	
+	@Column(name="role_id")
+	private int roleId;
 	
 	public UserLogin() {
 		
 	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 	public String getUsername() {
 		return username;
@@ -28,28 +65,28 @@ public class UserLogin {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPasswordHash() {
+		return passwordHash;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
 	}
 
-	public String getHashValue() {
-		return hashValue;
+	public String getPasswordSalt() {
+		return passwordSalt;
 	}
 
-	public void setHashValue(String hashValue) {
-		this.hashValue = hashValue;
+	public void setPasswordSalt(String passwordSalt) {
+		this.passwordSalt = passwordSalt;
 	}
 
-	public String getRole() {
-		return role;
+	public int getRoleId() {
+		return roleId;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
 	
 	

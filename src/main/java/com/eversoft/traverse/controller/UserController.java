@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eversoft.traverse.model.User;
+import com.eversoft.traverse.model.UserLogin;
 import com.eversoft.traverse.model.VisaInformation;
+import com.eversoft.traverse.service.UserLoginService;
 import com.eversoft.traverse.service.UserService;
 import com.eversoft.traverse.service.VisaInformationService;
 
@@ -29,11 +31,17 @@ public class UserController {
 	@Autowired
 	VisaInformationService visaService;
 	
+<<<<<<< HEAD
+=======
+	@Autowired
+	UserLoginService userLoginService;
+	
+>>>>>>> 489e0ef0c0974dcdd2baaecfdef8b3ac3bdd2408
 	@RequestMapping(value="/get", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getUserById(@RequestParam(value="id") int id) {
 		User user = userService.getUserById(id);
-		VisaInformation visaInfo = visaService.getVisaInformationById(user.getVisaId());
-		user.setVisaInformation(visaInfo);
+		user.setVisaInformation(visaService.getVisaInformationById(user.getVisaId()));
+		user.setLoginInformation(userLoginService.getUserLoginByIdSecure(user.getLoginId()));
 		System.out.println("GET USER: " + user);
 		return user;
 	}
