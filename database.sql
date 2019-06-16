@@ -75,6 +75,15 @@ CREATE TABLE `itinerary` (
   PRIMARY KEY (`id`)
 );
   
+    -- Table COmment
+    CREATE TABLE `sys`.`comment` (
+      `id` INT NOT NULL AUTO_INCREMENT,
+      `answer_id` INT NULL,
+      `user_id` INT NULL,
+      `description` VARCHAR(255) NULL,
+      `insert_date` DATE NULL,
+      `is_active` VARCHAR(45) NULL,
+      PRIMARY KEY (`id`));
   
   
   -- POPULATE DUMMY DATA
@@ -99,3 +108,9 @@ INSERT INTO `sys`.`user_login` (`id`, `username`, `email`, `password_hash`, `pas
 
 -- INSERT INTO itinerary
 INSERT INTO `itinerary` VALUES (1,'Fewa Lake',10000,1,'Pokhara',3,2,'My Fav. Place');
+
+-- Insert into comment
+INSERT INTO `sys`.`comment` (`answer_id`, `user_id`, `description`, `insert_date`, `is_active`) VALUES ('1', '1', 'Test Comment 1', '2018-01-01', '1');
+INSERT INTO `sys`.`comment` (`answer_id`, `user_id`, `description`, `insert_date`, `is_active`) VALUES ('1', '2', 'Test Comment 2', '2018-01-01', '1');
+INSERT INTO `sys`.`comment` (`answer_id`, `user_id`, `description`, `insert_date`, `is_active`) VALUES ('2', '3', 'Test Comment 3', '2018-01-01', '1');
+

@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 import com.eversoft.traverse.dao.QuestionDao;
 import com.eversoft.traverse.dao.AnswerDao;
 import com.eversoft.traverse.model.Answer;
-//import com.eversoft.traverse.dao.commentDao;
+import com.eversoft.traverse.model.Comment;
+import com.eversoft.traverse.dao.CommentDao;
 import com.eversoft.traverse.model.Question;
 import com.eversoft.traverse.service.ForumService;
 
@@ -21,8 +22,8 @@ public class ForumServiceimpl implements ForumService{
 	@Autowired
 	AnswerDao answerDao;
 	
-//	@Autowired
-//	CommentDao commentDao;
+	@Autowired
+	CommentDao commentDao;
 
 	public ForumServiceimpl() {
 		
@@ -81,6 +82,32 @@ public class ForumServiceimpl implements ForumService{
 	@Override
 	public Answer getAnswerById(int id) {
 		return answerDao.getAnswerById(id);
+	}
+	
+	/* For Comments */
+	@Override
+	public boolean createComment(Comment comment) {
+		return commentDao.createComment(comment);
+	}
+	
+	@Override
+	public boolean deleteComment(int id) {
+		return commentDao.deleteComment(id);
+	}
+	
+	@Override
+	public List<Comment> getAllComment(int answerId){
+		return commentDao.getAllComment(answerId);
+	}
+	
+	@Override
+	public boolean updateComment(int id, Comment comment) {
+		return commentDao.updateComment(id, comment);
+	}
+	
+	@Override
+	public Comment getCommentById(int id) {
+		return commentDao.getCommentById(id);
 	}
 	
 }
