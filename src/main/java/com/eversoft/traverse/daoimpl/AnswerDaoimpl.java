@@ -3,6 +3,8 @@ package com.eversoft.traverse.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -62,13 +64,16 @@ public class AnswerDaoimpl implements AnswerDao{
 	}
 	
 	@Override
-	public List<Answer> getAllAnswer(int userId){
+	public List<Answer> getAllAnswer(int questionId){
 		try
 	    {
 			  Session session = HibernateUtil.getSessionFactory().openSession();
 			  Transaction transaction = session.getTransaction();
 			  transaction.begin();
-			  List<Answer> list = session.createCriteria(Answer.class).list();
+			  
+			  String hql = "FROM Answer answer WHERE answer.questionId = " + questionId;
+			  Query query = session.createQuery(hql);
+			  List<Answer> list = query.list();
 			  System.out.println("Get ALl answer Called");
 	         return list;
 	    } catch (Exception e) {

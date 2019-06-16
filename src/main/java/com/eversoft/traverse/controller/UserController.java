@@ -31,12 +31,9 @@ public class UserController {
 	@Autowired
 	VisaInformationService visaService;
 	
-<<<<<<< HEAD
-=======
 	@Autowired
 	UserLoginService userLoginService;
 	
->>>>>>> 489e0ef0c0974dcdd2baaecfdef8b3ac3bdd2408
 	@RequestMapping(value="/get", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getUserById(@RequestParam(value="id") int id) {
 		User user = userService.getUserById(id);

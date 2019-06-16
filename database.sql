@@ -70,8 +70,7 @@ INSERT INTO `sys`.`users` (`id`, `first_name`, `middle_name`, `last_name`, `nati
 
 
 -- INSERT INTO visa_information
-<<<<<<< HEAD
-INSERT INTO `sys`.`visa_information` (`id`, `document_type`, `document_number`, `expiry_date`, `visa_type`, `visa_period`) VALUES ('1', 'ABC', '1234', '2020-10-12', 'abc', 200)
+INSERT INTO `sys`.`visa_information` (`id`, `document_type`, `document_number`, `expiry_date`, `visa_type`, `visa_period`) VALUES ('1', 'ABC', '1234', '2020-10-12', 'abc', 200);
 
 -- INSERT INTO Question
 INSERT INTO `sys`.`question` (`question`, `description`, `votes`, `user_id`, `photo_id`, `insert_date`, `is_active`) VALUES ('Total visit cost for pokhara tour?', 'Total amout and places to visit in pokhara.', '3', '1', 'dfgfdrsfsda', '1997-10-19', '1');
@@ -79,10 +78,7 @@ INSERT INTO `sys`.`question` (`question`, `description`, `votes`, `user_id`, `ph
 -- Insert into answers
 INSERT INTO `sys`.`answers` (`question_id`, `user_id`, `votes`, `photo_id`, `description`, `insert_date`, `is_active`) VALUES ('1', '1', '3', 'fbgnhfdgbvbs', 'This is test comment for question 1', '1997-10-19', '1');
 
-
-=======
 INSERT INTO `sys`.`visa_information` (`id`, `document_type`, `document_number`, `expiry_date`, `visa_type`, `visa_period`) VALUES ('1', 'ABC', '1234', '2020-10-12', 'abc', 200);
 
 -- INSERT INTO user_login
 INSERT INTO `sys`.`user_login` (`id`, `username`, `email`, `password_hash`, `password_salt`, `role_id`) VALUES ('2', 'pradip', 'abc@xyz.com', 'dsf', 'df', '1');
->>>>>>> 489e0ef0c0974dcdd2baaecfdef8b3ac3bdd2408

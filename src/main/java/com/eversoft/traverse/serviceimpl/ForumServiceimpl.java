@@ -69,8 +69,8 @@ public class ForumServiceimpl implements ForumService{
 	}
 	
 	@Override
-	public List<Answer> getAllAnswer(int userId){
-		return answerDao.getAllAnswer(userId);
+	public List<Answer> getAllAnswer(int questionId){
+		return answerDao.getAllAnswer(questionId);
 	}
 	
 	@Override

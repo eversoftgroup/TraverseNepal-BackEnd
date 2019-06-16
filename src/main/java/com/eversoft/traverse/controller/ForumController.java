@@ -20,8 +20,8 @@ import com.eversoft.traverse.model.Comment;
 import com.eversoft.traverse.service.ForumService;
 
 @RestController
-@RequestMapping("/question")
-public class QuestionController {
+@RequestMapping("/forum")
+public class ForumController {
 
 	@Autowired
 	ForumService forumService;
@@ -61,6 +61,15 @@ public class QuestionController {
 		question.setAnswer(listAnswer);
 		System.out.println("GET Question: " + question);
 		return question;
+	}
+	
+	@RequestMapping(value="/answer/getall", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Answer> getAllAnswersOfQuestion(@RequestParam(value="id") int id) {
+		//Question question = forumService.getAllAnswer(id);
+		List<Answer> listAnswer = forumService.getAllAnswer(id);
+		//question.setAnswer(listAnswer);
+		//System.out.println("GET Question: " + question);
+		return listAnswer;
 	}
 	
 	

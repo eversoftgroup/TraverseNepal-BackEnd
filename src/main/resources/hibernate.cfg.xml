@@ -21,11 +21,9 @@
  		<mapping class="com.eversoft.traverse.model.User" />
  		<mapping class="com.eversoft.traverse.model.Itinerary" />
  		<mapping class="com.eversoft.traverse.model.VisaInformation"/>
-<<<<<<< HEAD
  		<mapping class="com.eversoft.traverse.model.Question"/>
-=======
  		<mapping class="com.eversoft.traverse.model.UserLogin"/>
->>>>>>> 489e0ef0c0974dcdd2baaecfdef8b3ac3bdd2408
+ 		<mapping class="com.eversoft.traverse.model.Answer"/>
         <!-- Mapping With Model Class Containing Annotations -->
         <!-- <mapping class="com.jcg.hibernate.crud.operations.Student" /> -->
     </session-factory>
