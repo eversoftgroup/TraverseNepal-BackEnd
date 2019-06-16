@@ -1,12 +1,47 @@
 package com.eversoft.traverse.model;
 
+import java.util.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="answers")
 public class Answer {
+	
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name="question_id")
 	private int questionId;
+	
+	@Column(name="user_id")
 	private int userId;
+	
+	@Column(name="votes")
 	private int votes;
-	private int photoId;
+	
+	@Column(name="photo_id")
+	private String photoId;
+	
+	@Column(name="description")
 	private String description;
+	
+	@Column(name="insert_date")
+	public Date insertDate;
+	
+	@Column(name="is_active")
+	private String isActive;
+	
+//	@Transient
+//	private Comment comment;
 	
 	public Answer() {
 		
@@ -44,11 +79,11 @@ public class Answer {
 		this.votes = votes;
 	}
 
-	public int getPhotoId() {
+	public String getPhotoId() {
 		return photoId;
 	}
 
-	public void setPhotoId(int photoId) {
+	public void setPhotoId(String photoId) {
 		this.photoId = photoId;
 	}
 
@@ -60,5 +95,20 @@ public class Answer {
 		this.description = description;
 	}
 	
+	public Date getInsertDate() {
+		return insertDate;
+	}
+
+	public void setInsertDate(Date insertDate) {
+		this.insertDate = insertDate;
+	}
+	
+	public String getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(String isActive) {
+		this.isActive = isActive;
+	}
 	
 }

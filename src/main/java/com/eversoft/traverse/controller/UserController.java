@@ -29,38 +29,6 @@ public class UserController {
 	@Autowired
 	VisaInformationService visaService;
 	
-//	@RequestMapping(value="/add", method = RequestMethod.GET)
-//	public String addUserDummy(Model model) {
-//		
-//		User dummyUser = new User();
-//		dummyUser.setDateOfBirth(new Date());
-//		dummyUser.setFirstName("Bikalpa");
-//		dummyUser.setLastName("Dhakal");
-//		dummyUser.setMiddleName("Raj");
-//		dummyUser.setNationality("Nepalese");
-//		dummyUser.setVisaId(22);
-//		
-//		userService.createUser(dummyUser);
-//		
-//		return "home";
-//	}
-//	
-//	@RequestMapping(value="/fetchdummydata", method = RequestMethod.GET)
-//	public String fetchDummyData(Model model) {
-//		
-//		User user = userService.getUserById(2);
-//		System.out.println(user);
-//		return "home";
-//	}
-//	
-//	@RequestMapping(value="/deletedummyvalue", method = RequestMethod.GET)
-//	public String deleteDummyValue(Model model) {
-//		
-//		boolean deleted =  userService.deleteUser(1);
-//		System.out.println(deleted);
-//		return "home";
-//	}
-	
 	@RequestMapping(value="/get", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getUserById(@RequestParam(value="id") int id) {
 		User user = userService.getUserById(id);
@@ -70,13 +38,6 @@ public class UserController {
 		return user;
 	}
 	
-//	@RequestMapping(value="/get", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-//	public User getUserById(@RequestParam(value="id") int id) {
-//		User user = userService.getUserById(id);
-//		System.out.println("GET USER: " + user);
-//		return user;
-//	}
-//	
 	@RequestMapping(value="/add", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public boolean addNewUser(@RequestBody User user) {
 		boolean added =  userService.createUser(user);
