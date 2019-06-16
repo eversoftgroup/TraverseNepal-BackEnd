@@ -31,6 +31,9 @@ public class UserLogin {
 	@Column(name="role_id")
 	private int roleId;
 	
+	@Column(name="api_key")
+	private String apiKey;
+	
 	public UserLogin() {
 		
 	}
@@ -87,6 +90,18 @@ public class UserLogin {
 
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
+	}
+
+
+
+	public String getApiKey() {
+		return apiKey;
+	}
+
+
+
+	public void setApiKey(String apiKey) {
+		this.apiKey = apiKey;
 	}
 	
 	

@@ -9,6 +9,7 @@ import com.eversoft.traverse.dao.UserLoginDao;
 import com.eversoft.traverse.model.User;
 import com.eversoft.traverse.model.UserLogin;
 import com.eversoft.traverse.service.UserLoginService;
+import com.eversoft.traverse.utility.StringUtils;
 
 @Service
 public class UserLoginServiceImpl implements UserLoginService{
@@ -45,7 +46,21 @@ public class UserLoginServiceImpl implements UserLoginService{
 		UserLogin userLogin = userLoginDao.getUserLoginById(id);
 		userLogin.setPasswordHash(null);
 		userLogin.setPasswordSalt(null);
+		userLogin.setApiKey(null);
 		return userLogin;
+	}
+
+	@Override
+	public boolean updateKey(String username, String key) {
+		UserLogin userLogin;
+		if(StringUtils.isEmail(username)) {
+			userLogin = userLoginDao.getUserLoginByEmail(username);
+		}else {
+			userLogin = userLoginDao.getUserLoginByUsername(username);
+		}
+		userLogin.setApiKey(key);
+		userLoginDao.updateUserLogin(userLogin.getId(), userLogin);
+		return false;
 	}
 
 }

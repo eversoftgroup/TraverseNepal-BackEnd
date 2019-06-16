@@ -3,6 +3,7 @@ package com.eversoft.traverse.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import com.eversoft.traverse.dao.UserDao;
 import com.eversoft.traverse.dao.UserLoginDao;
+import com.eversoft.traverse.model.Answer;
 import com.eversoft.traverse.model.User;
 import com.eversoft.traverse.model.UserLogin;
 import com.eversoft.traverse.utility.HibernateUtil;
@@ -106,6 +108,76 @@ public class UserLoginDaoImpl implements UserLoginDao {
           sqlException.printStackTrace();
       } 
 		return false;
+	}
+
+	@Override
+	public UserLogin getUserLoginByUsername(String username) {
+		try {
+			  //getting session object from session factory
+			  Session session = HibernateUtil.getSessionFactory().openSession();
+			  Transaction transaction = session.getTransaction();
+			  transaction.begin();
+			  
+			  String hql = "FROM UserLogin userlogin WHERE userlogin.username = \'" + username + "\'";
+			  Query query = session.createQuery(hql);
+			  UserLogin userLogin = (UserLogin)query.getSingleResult();
+			  System.out.println("Get User Login by username called");
+			  transaction.commit();
+			  session.close();
+			  
+			  return userLogin;
+		}catch(Exception sqlException) {
+          sqlException.printStackTrace();
+          return null;
+      }
+	}
+
+	@Override
+	public UserLogin getUserLoginByEmail(String email) {
+		try {
+			  //getting session object from session factory
+			  Session session = HibernateUtil.getSessionFactory().openSession();
+			  Transaction transaction = session.getTransaction();
+			  transaction.begin();
+			  
+			  String hql = "FROM UserLogin userlogin WHERE userlogin.email = \'" + email + "\'";
+			  Query query = session.createQuery(hql);
+			  UserLogin userLogin = (UserLogin)query.getSingleResult();
+			  System.out.println("Get User Login by username called");
+			  transaction.commit();
+			  session.close();
+			  
+			  return userLogin;
+		}catch(Exception sqlException) {
+	        sqlException.printStackTrace();
+	        return null;
+	    }
+	}
+
+	@Override
+	public boolean isValidAPIKey(String key) {
+		try {
+			  //getting session object from session factory
+			  Session session = HibernateUtil.getSessionFactory().openSession();
+			  Transaction transaction = session.getTransaction();
+			  transaction.begin();
+			  
+			  String hql = "FROM UserLogin userlogin WHERE userlogin.apiKey = \'" + key + "\'";
+			  Query query = session.createQuery(hql);
+			  UserLogin userLogin = (UserLogin)query.getSingleResult();
+			  System.out.println("isValidAPIKey called");
+			  transaction.commit();
+			  session.close();
+			  
+			  if(userLogin == null) {
+				  return false;
+			  }else {
+				  return true;
+			  }
+		}catch(Exception sqlException) {
+		      sqlException.printStackTrace();
+		      return false;
+		}
 	}
 
 }

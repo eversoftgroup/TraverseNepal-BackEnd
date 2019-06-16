@@ -11,4 +11,5 @@ public interface UserLoginService {
 	public boolean deleteUserLogin(int id);
 	public boolean updateUserLogin(int id, UserLogin userLogin);
 	public UserLogin getUserLoginByIdSecure(int id);
+	public boolean updateKey(String username, String key);
 }

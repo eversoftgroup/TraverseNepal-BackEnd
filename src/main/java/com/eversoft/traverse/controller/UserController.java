@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.eversoft.traverse.model.User;
 import com.eversoft.traverse.model.UserLogin;
 import com.eversoft.traverse.model.VisaInformation;
+import com.eversoft.traverse.service.AuthService;
 import com.eversoft.traverse.service.UserLoginService;
 import com.eversoft.traverse.service.UserService;
 import com.eversoft.traverse.service.VisaInformationService;
@@ -34,20 +35,31 @@ public class UserController {
 	@Autowired
 	UserLoginService userLoginService;
 	
+	@Autowired
+	AuthService authService;
+	
 	@RequestMapping(value="/get", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public User getUserById(@RequestParam(value="id") int id) {
-		User user = userService.getUserById(id);
-		user.setVisaInformation(visaService.getVisaInformationById(user.getVisaId()));
-		user.setLoginInformation(userLoginService.getUserLoginByIdSecure(user.getLoginId()));
-		System.out.println("GET USER: " + user);
-		return user;
+	public User getUserById(@RequestParam(value="id") int id, @RequestParam(value="key") String key) {
+		if(authService.isValidAPIKey(key)) {
+			User user = userService.getUserById(id);
+			user.setVisaInformation(visaService.getVisaInformationById(user.getVisaId()));
+			user.setLoginInformation(userLoginService.getUserLoginByIdSecure(user.getLoginId()));
+			System.out.println("GET USER: " + user);
+			return user;
+		}else {
+			return null;
+		}
 	}
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public boolean addNewUser(@RequestBody User user) {
-		boolean added =  userService.createUser(user);
-		System.out.println("NEW USER ADDED? : " + added);
-		return added;
+	public boolean addNewUser(@RequestBody User user, @RequestParam(value="key") String key) {
+		if(authService.isValidAPIKey(key)) {
+			boolean added =  userService.createUser(user);
+			System.out.println("NEW USER ADDED? : " + added);
+			return added;
+		}else {
+			return false;
+		}
 	}
 	
 	@RequestMapping(value="/delete", method = RequestMethod.GET)

@@ -17,8 +17,8 @@
       <td rowspan="5">/user</td>
       <td>/get</td>
       <td>GET</td>
-      <td>id: int</td>
-      <td>User Id</td>
+      <td>id: int <br> key: String</td>
+      <td>User Id <br> API Key</td>
       <td>-</td>
        <td>-</td>
         <td>application/JSON</td>
@@ -28,8 +28,8 @@
     <tr>
       <td>/getall</td>
       <td>GET</td>
-      <td>-</td>
-      <td>-</td>
+      <td>key: String</td>
+      <td>API Key</td>
       <td>-</td>
        <td>-</td>
         <td>application/JSON array</td>
@@ -39,8 +39,8 @@
     <tr>
       <td>/add</td>
       <td>POST</td>
-      <td>-</td>
-      <td>-</td>
+      <td>key: String</td>
+      <td>API Key</td>
       <td>user: application/JSON</td>
        <td>User Object</td>
         <td>boolean</td>
@@ -50,8 +50,8 @@
     <tr>
       <td>/update</td>
       <td>POST</td>
-      <td>id: int</td>
-      <td>User ID</td>
+      <td>id: int <br> key: String</td>
+      <td>User ID <br> API Key</td>
       <td>user: application/JSON</td>
        <td>User Object</td>
         <td>boolean</td>
@@ -60,8 +60,8 @@
     <tr>
       <td>/delete</td>
       <td>GET</td>
-      <td>id: int</td>
-      <td>UserID</td>
+      <td>id: int <br> key: String</td>
+      <td>UserID <br> API Key</td>
       <td>-</td>
        <td>-</td>
         <td>boolean</td>
@@ -73,8 +73,8 @@
       <td rowspan="5">/itinerary</td>
       <td>/get</td>
       <td>GET</td>
-      <td>id: int</td>
-      <td>Itinerary ID</td>
+      <td>id: int <br> key: String</td>
+      <td>Itinerary ID <br> API Key</td>
       <td>-</td>
        <td>-</td>
         <td>application/JSON</td>
@@ -84,8 +84,8 @@
     <tr>
       <td>/getall</td>
       <td>GET</td>
-      <td>id: int</td>
-      <td>User ID</td>
+      <td>id: int <br> key: String</td>
+      <td>User ID <br> API Key</td>
       <td>-</td>
        <td>-</td>
         <td>application/JSON array</td>
@@ -95,8 +95,8 @@
     <tr>
       <td>/add</td>
       <td>POST</td>
-      <td>-</td>
-      <td>-</td>
+      <td>key: String</td>
+      <td> API Key</td>
       <td>itinerary: application/JSON</td>
        <td>Itinerary Object</td>
         <td>boolean</td>
@@ -106,8 +106,8 @@
     <tr>
       <td>/update</td>
       <td>POST</td>
-      <td>id: int</td>
-      <td>Itinerary ID</td>
+      <td>id: int <br> key: String</td>
+      <td>Itinerary ID <br> API Key</td>
       <td>itinerary: application/JSON</td>
        <td>Itinerary Object</td>
         <td>boolean</td>
@@ -116,14 +116,15 @@
     <tr>
       <td>/delete</td>
       <td>GET</td>
-      <td>id: int</td>
-      <td>Itinerary ID</td>
+      <td>id: int <br> key: String</td>
+      <td>Itinerary ID <br> API Key</td>
       <td>-</td>
        <td>-</td>
         <td>boolean</td>
          <td>delete success/failure</td>
     </tr>
     
+    <!-- No KEY BELOW THIS -->
     <tr>
     	<td rowspan="5">3</td>
       <td rowspan="5">/forum/question</td>
@@ -140,8 +141,8 @@
     <tr>
       <td>/getall</td>
       <td>GET</td>
-      <td></td>
-      <td></td>
+      <td>-</td>
+      <td>-</td>
       <td>-</td>
        <td>-</td>
         <td>application/JSON array</td>
