@@ -9,4 +9,5 @@ public interface ItineraryListService {
 	public boolean deleteItinerary(int id);
 	public List<Itinerary> getAllItinerary();
 	public boolean updateItinerary(int id, Itinerary itinerary);
+	public Itinerary getItineraryById(int id);
 }

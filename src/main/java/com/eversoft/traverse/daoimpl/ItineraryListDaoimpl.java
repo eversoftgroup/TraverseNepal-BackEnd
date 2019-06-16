@@ -99,4 +99,24 @@ public class ItineraryListDaoimpl implements ItineraryListDao{
       } 
 		return false;
 	}
+
+	@Override
+	public Itinerary getItineraryById(int id) {
+
+		try {
+			  //getting session object from session factory
+			  Session session = HibernateUtil.getSessionFactory().openSession();
+			  Transaction transaction = session.getTransaction();
+			  transaction.begin();
+			  Itinerary itinerary = (Itinerary)session.get(Itinerary.class, id);
+			  System.out.println("Get Itinerary By ID called");
+			  transaction.commit();
+			  session.close();
+			  
+			  return itinerary;
+		}catch(Exception sqlException) {
+            sqlException.printStackTrace();
+            return null;
+        }
+	}
 }

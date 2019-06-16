@@ -20,7 +20,7 @@ import com.eversoft.traverse.service.UserService;
 import com.eversoft.traverse.service.ItineraryListService;
 
 @RestController
-@RequestMapping("/itineraryList")
+@RequestMapping("/itinerary")
 public class ItineraryListController {
 	
 	@Autowired
@@ -52,5 +52,12 @@ public class ItineraryListController {
 		boolean added =  itineraryListService.createItinerary(itinerary);
 		System.out.println("NEW Itinerary ADDED? : " + added);
 		return added;
+	}
+	
+	@RequestMapping(value="/get", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public Itinerary getItineraryById(@RequestParam(value="id") int id) {
+		Itinerary itinerary = itineraryListService.getItineraryById(id);
+		System.out.println("GET Itinerary: " + itinerary);
+		return itinerary;
 	}
 }

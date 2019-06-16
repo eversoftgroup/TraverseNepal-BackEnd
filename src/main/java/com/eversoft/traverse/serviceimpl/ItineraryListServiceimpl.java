@@ -39,4 +39,9 @@ public class ItineraryListServiceimpl implements ItineraryListService{
 		return itineraryListDao.updateItinerary(id, itinerary);
 	}
 
+	@Override
+	public Itinerary getItineraryById(int id) {
+		return itineraryListDao.getItineraryById(id);
+	}
+
 }

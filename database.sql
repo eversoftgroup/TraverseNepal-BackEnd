@@ -61,6 +61,20 @@ CHANGE COLUMN `avatar_url` `avatar_url` VARCHAR(512) NOT NULL DEFAULT 'http://ww
   `is_active` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));
   
+  -- TABLE itinerary
+  DROP TABLE IF EXISTS `itineraryList`;
+CREATE TABLE `itinerary` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `allocatedBudget` double DEFAULT NULL,
+  `priorityID` int(11) DEFAULT NULL,
+  `placeName` varchar(45) DEFAULT NULL,
+  `locationId` int(11) DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+  
   
   
   -- POPULATE DUMMY DATA
@@ -82,3 +96,6 @@ INSERT INTO `sys`.`visa_information` (`id`, `document_type`, `document_number`, 
 
 -- INSERT INTO user_login
 INSERT INTO `sys`.`user_login` (`id`, `username`, `email`, `password_hash`, `password_salt`, `role_id`) VALUES ('2', 'pradip', 'abc@xyz.com', 'dsf', 'df', '1');
+
+-- INSERT INTO itinerary
+INSERT INTO `itinerary` VALUES (1,'Fewa Lake',10000,1,'Pokhara',3,2,'My Fav. Place');

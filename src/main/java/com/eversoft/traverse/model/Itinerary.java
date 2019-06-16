@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="itineraryList")
+@Table(name="itinerary")
 public class Itinerary implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
