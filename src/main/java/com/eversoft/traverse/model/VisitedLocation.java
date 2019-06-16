@@ -2,15 +2,47 @@ package com.eversoft.traverse.model;
 
 import java.util.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="visited_location")
 public class VisitedLocation {
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name="user_id")
 	private int userId;
+	
+	@Column(name="location_id")
 	private int locationId;
+	
+	@Column(name="created_date")
 	private Date created;
+	
+	@Column(name="last_modified")
 	private Date lastModified;
+	
+	@Column(name="is_active")
+	private String isActive;
 	
 	public VisitedLocation() {
 		
+	}
+
+	public String getIsActive() {
+		return isActive;
+	}
+
+
+	public void setIsActive(String isActive) {
+		this.isActive = isActive;
 	}
 
 	public int getId() {

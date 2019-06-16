@@ -43,7 +43,7 @@ public class UserController {
 		if(authService.isValidAPIKey(key)) {
 			User user = userService.getUserById(id);
 			user.setVisaInformation(visaService.getVisaInformationById(user.getVisaId()));
-			user.setLoginInformation(userLoginService.getUserLoginByIdSecure(user.getLoginId()));
+			user.setLoginInformation(userLoginService.getUserLoginById(user.getLoginId()));
 			System.out.println("GET USER: " + user);
 			return user;
 		}else {
@@ -63,24 +63,36 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/delete", method = RequestMethod.GET)
-	public boolean deleteUserById(@RequestParam(value="id") int id) {
-		boolean deleted = userService.deleteUser(id);
-		System.out.println("DELETED user with id = " + id + "?: " + deleted);
-		return deleted;
+	public boolean deleteUserById(@RequestParam(value="id") int id, @RequestParam(value="key") String key) {
+		if(authService.isValidAPIKey(key)) {
+			boolean deleted = userService.deleteUser(id);
+			System.out.println("DELETED user with id = " + id + "?: " + deleted);
+			return deleted;
+		}else {
+			return false;
+		}
 	}
 	
 	@RequestMapping(value="/getall", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<User> getAllUsers() {
-		List<User> list = userService.getAllUsers();
-		System.out.println("User List: " + list);
-		return list;
+	public List<User> getAllUsers(@RequestParam(value="key") String key) {
+		if(authService.isValidAPIKey(key)) {
+			List<User> list = userService.getAllUsers();
+			System.out.println("User List: " + list);
+			return list;
+		}else {
+			return null;
+		}
 	}
 	
 	@RequestMapping(value="/update", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public boolean updateUser(@RequestBody User user, @RequestParam(value="id") int id) {
-		boolean updated =  userService.updateUser(id, user);
-		System.out.println("USER updated? : " + updated);
-		return updated;
+	public boolean updateUser(@RequestBody User user, @RequestParam(value="id") int id, @RequestParam(value="key") String key) {
+		if(authService.isValidAPIKey(key)) {
+			boolean updated =  userService.updateUser(id, user);
+			System.out.println("USER updated? : " + updated);
+			return updated;
+		}else {
+			return false;
+		}
 	}
 	
 	
