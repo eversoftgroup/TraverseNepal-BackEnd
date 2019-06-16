@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eversoft.traverse.model.User;
+import com.eversoft.traverse.model.UserLogin;
 import com.eversoft.traverse.model.VisaInformation;
+import com.eversoft.traverse.service.UserLoginService;
 import com.eversoft.traverse.service.UserService;
 import com.eversoft.traverse.service.VisaInformationService;
 
@@ -29,54 +31,18 @@ public class UserController {
 	@Autowired
 	VisaInformationService visaService;
 	
-//	@RequestMapping(value="/add", method = RequestMethod.GET)
-//	public String addUserDummy(Model model) {
-//		
-//		User dummyUser = new User();
-//		dummyUser.setDateOfBirth(new Date());
-//		dummyUser.setFirstName("Bikalpa");
-//		dummyUser.setLastName("Dhakal");
-//		dummyUser.setMiddleName("Raj");
-//		dummyUser.setNationality("Nepalese");
-//		dummyUser.setVisaId(22);
-//		
-//		userService.createUser(dummyUser);
-//		
-//		return "home";
-//	}
-//	
-//	@RequestMapping(value="/fetchdummydata", method = RequestMethod.GET)
-//	public String fetchDummyData(Model model) {
-//		
-//		User user = userService.getUserById(2);
-//		System.out.println(user);
-//		return "home";
-//	}
-//	
-//	@RequestMapping(value="/deletedummyvalue", method = RequestMethod.GET)
-//	public String deleteDummyValue(Model model) {
-//		
-//		boolean deleted =  userService.deleteUser(1);
-//		System.out.println(deleted);
-//		return "home";
-//	}
+	@Autowired
+	UserLoginService userLoginService;
 	
 	@RequestMapping(value="/get", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getUserById(@RequestParam(value="id") int id) {
 		User user = userService.getUserById(id);
-		VisaInformation visaInfo = visaService.getVisaInformationById(user.getVisaId());
-		user.setVisaInformation(visaInfo);
+		user.setVisaInformation(visaService.getVisaInformationById(user.getVisaId()));
+		user.setLoginInformation(userLoginService.getUserLoginByIdSecure(user.getLoginId()));
 		System.out.println("GET USER: " + user);
 		return user;
 	}
 	
-//	@RequestMapping(value="/get", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-//	public User getUserById(@RequestParam(value="id") int id) {
-//		User user = userService.getUserById(id);
-//		System.out.println("GET USER: " + user);
-//		return user;
-//	}
-//	
 	@RequestMapping(value="/add", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public boolean addNewUser(@RequestBody User user) {
 		boolean added =  userService.createUser(user);

@@ -36,11 +36,20 @@ public class User implements Serializable{
 	@Column(name="date_of_birth")
 	public Date dateOfBirth;
 	
-	@Column(name="visaId")
+	@Column(name="visa_id")
 	private int visaId;
+	
+	@Column(name="login_id")
+	private int loginId;
+	
+	@Column(name="avatar_url")
+	private String avatarUrl;
 	
 	@Transient
 	private VisaInformation visaInformation;
+	
+	@Transient
+	private UserLogin loginInformation;
 	
 	public User() {
 		
@@ -93,6 +102,16 @@ public class User implements Serializable{
 	public void setVisaId(int visaId) {
 		this.visaId = visaId;
 	}
+	
+	
+
+	public int getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(int loginId) {
+		this.loginId = loginId;
+	}
 
 	@Override
 	public String toString() {
@@ -115,9 +134,22 @@ public class User implements Serializable{
 	public void setVisaInformation(VisaInformation visaInformation) {
 		this.visaInformation = visaInformation;
 	}
-	
-	
-	
+
+	public UserLogin getLoginInformation() {
+		return loginInformation;
+	}
+
+	public void setLoginInformation(UserLogin loginInformation) {
+		this.loginInformation = loginInformation;
+	}
+
+	public String getAvatarUrl() {
+		return avatarUrl;
+	}
+
+	public void setAvatarUrl(String avatarUrl) {
+		this.avatarUrl = avatarUrl;
+	}
 	
 	
 	
