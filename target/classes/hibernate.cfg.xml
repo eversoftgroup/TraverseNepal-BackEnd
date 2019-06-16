@@ -24,6 +24,7 @@
  		<mapping class="com.eversoft.traverse.model.Question"/>
  		<mapping class="com.eversoft.traverse.model.UserLogin"/>
  		<mapping class="com.eversoft.traverse.model.Answer"/>
+ 		<mapping class="com.eversoft.traverse.model.Comment"/>
         <!-- Mapping With Model Class Containing Annotations -->
         <!-- <mapping class="com.jcg.hibernate.crud.operations.Student" /> -->
     </session-factory>

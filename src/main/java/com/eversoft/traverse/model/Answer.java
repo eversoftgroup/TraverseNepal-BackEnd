@@ -40,12 +40,23 @@ public class Answer {
 	@Column(name="is_active")
 	private String isActive;
 	
-//	@Transient
-//	private Comment comment;
+	@Transient
+	private List<Comment>comment;
 	
 	public Answer() {
 		
 	}
+
+	
+	public List<Comment> getComment() {
+		return comment;
+	}
+
+
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
+	}
+
 
 	public int getId() {
 		return id;

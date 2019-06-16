@@ -20,9 +20,9 @@ public interface ForumService {
 	public boolean updateAnswer(int id, Answer answer);
 	public Answer getAnswerById(int id);
 	
-//	public boolean createComment(Comment comment);
-//	public boolean deleteComment(int id);
-//	public List<Comment> getAllComment(int answerId);
-//	public boolean updateComment(int id, Comment comment);
-//	public Question getCommentById(int id);
+	public boolean createComment(Comment comment);
+	public boolean deleteComment(int id);
+	public List<Comment> getAllComment(int answerId);
+	public boolean updateComment(int id, Comment comment);
+	public Comment getCommentById(int id);
 }
