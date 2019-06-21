@@ -3,7 +3,7 @@ package com.eversoft.traverse.service;
 import java.util.List;
 import com.eversoft.traverse.model.Question;
 import com.eversoft.traverse.model.Answer;
-import com.eversoft.traverse.model.Comment;;
+import com.eversoft.traverse.model.Comment;
 
 public interface ForumService {
 	

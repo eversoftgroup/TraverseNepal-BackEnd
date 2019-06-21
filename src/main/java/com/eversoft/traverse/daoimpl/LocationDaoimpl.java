@@ -30,10 +30,10 @@ public class LocationDaoimpl implements LocationDao{
 			  transaction.commit();
 			  session.close();
 			  return true;
-  } catch(Exception sqlException) {
-      sqlException.printStackTrace();
-  } 
-		return false;
+		  } catch(Exception sqlException) {
+		      sqlException.printStackTrace();
+		  } 
+			return false;
 }
 
 	public boolean deleteLocation(int id) {
@@ -53,11 +53,11 @@ public class LocationDaoimpl implements LocationDao{
 			  }
 			  session.close();
 			  return ret;
-			
-		}catch(Exception sqlException) {
-      sqlException.printStackTrace();
-      return false;
-		}
+				
+			}catch(Exception sqlException) {
+				sqlException.printStackTrace();
+				return false;
+			}
 	}
 	
 	@Override

@@ -71,7 +71,7 @@ public class ForumController {
 		return listAnswer;
 	}
 	
-	@RequestMapping(value="/answer/add", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/answer/add", method = RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
 	public boolean addAnswers(@RequestBody Answer answer) {
 		boolean added =  forumService.createAnswer(answer);
 		System.out.println("New Answer ADDED? : " + added);
@@ -99,7 +99,7 @@ public class ForumController {
 		return listAnswer;
 	}
 	
-	@RequestMapping(value="/comment/add", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/comment/add", method = RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
 	public boolean addComment(@RequestBody Comment comment) {
 		boolean added =  forumService.createComment(comment);
 		System.out.println("New Comment ADDED? : " + added);
