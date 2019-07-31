@@ -13,6 +13,7 @@ import com.eversoft.traverse.model.VisaInformation;
 import com.eversoft.traverse.service.AuthService;
 import com.eversoft.traverse.service.UserLoginService;
 import com.eversoft.traverse.utility.StringUtils;
+import com.eversoft.traverse.utility.JsonFormatter;
 
 @RestController
 @RequestMapping("/auth")
@@ -32,9 +33,10 @@ public class AuthController {
 		case AUTH_SUCCESS:
 			String key = StringUtils.generateRandomKey();
 			userLoginService.updateKey(username, key);
-			return key;
+			System.out.println("user login called! :)");
+			return JsonFormatter.FormatJson("message", key);
 		}
-		return "-1";
+		return JsonFormatter.FormatJson("message", "-1");
 		
 	}
 }

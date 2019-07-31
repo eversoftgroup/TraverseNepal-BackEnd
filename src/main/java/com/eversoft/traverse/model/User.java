@@ -34,7 +34,7 @@ public class User implements Serializable{
 	private String nationality;
 	
 	@Column(name="date_of_birth")
-	public Date dateOfBirth;
+	public String dateOfBirth;
 	
 	@Column(name="visa_id")
 	private int visaId;
@@ -87,11 +87,11 @@ public class User implements Serializable{
 		this.nationality = nationality;
 	}
 
-	public Date getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

@@ -21,6 +21,7 @@ import com.eversoft.traverse.service.AuthService;
 import com.eversoft.traverse.service.UserLoginService;
 import com.eversoft.traverse.service.UserService;
 import com.eversoft.traverse.service.VisaInformationService;
+import com.eversoft.traverse.utility.JsonFormatter;
 
 @RestController
 @RequestMapping("/user")
