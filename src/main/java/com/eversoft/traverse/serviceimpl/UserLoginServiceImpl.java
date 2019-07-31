@@ -62,5 +62,15 @@ public class UserLoginServiceImpl implements UserLoginService{
 		userLoginDao.updateUserLogin(userLogin.getId(), userLogin);
 		return false;
 	}
+	
+	@Override
+	public UserLogin getUserLoginByUsername(String username) {
+		return userLoginDao.getUserLoginByUsername(username);
+	}
+	
+	@Override
+	public UserLogin getUserLoginByEmail(String email) {
+		return userLoginDao.getUserLoginByEmail(email);
+	}
 
 }

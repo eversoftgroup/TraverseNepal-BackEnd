@@ -15,6 +15,8 @@ import com.eversoft.traverse.service.UserLoginService;
 import com.eversoft.traverse.utility.StringUtils;
 import com.eversoft.traverse.utility.JsonFormatter;
 
+import com.eversoft.traverse.model.UserLogin;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -26,17 +28,26 @@ public class AuthController {
 	AuthService authService;
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public String getUserById(@RequestParam(value="username") String username, @RequestParam(value="password") String passwordHash) {
+	public UserLogin getUserById(@RequestParam(value="username") String username, @RequestParam(value="password") String passwordHash) {
 		switch(authService.doLogin(username, passwordHash)) {
 		case AUTH_FAILURE_CREDENTIALS_ERROR:
 			break;
 		case AUTH_SUCCESS:
 			String key = StringUtils.generateRandomKey();
 			userLoginService.updateKey(username, key);
+			UserLogin userlogin;
+			if(StringUtils.isEmail(username)) {
+				userlogin = userLoginService.getUserLoginByEmail(username);
+			}else {
+				userlogin = userLoginService.getUserLoginByUsername(username);
+			}
+			System.out.println(userlogin);
 			System.out.println("user login called! :)");
-			return JsonFormatter.FormatJson("message", key);
+			return userlogin;
+//			return JsonFormatter.FormatJson("message", key);
 		}
-		return JsonFormatter.FormatJson("message", "-1");
+		return null;
+//		return JsonFormatter.FormatJson("message", "-1");
 		
 	}
 }

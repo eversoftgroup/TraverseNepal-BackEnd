@@ -24,7 +24,7 @@ public class VisaInformation {
 	private String documentNumber;
 	
 	@Column(name="expiry_date")
-	private Date expiryDate;
+	private String expiryDate;
 	
 	@Column(name="visa_type")
 	private String visaType;
@@ -52,11 +52,11 @@ public class VisaInformation {
 		this.documentNumber = documentNumber;
 	}
 
-	public Date getExpiryDate() {
+	public String getExpiryDate() {
 		return expiryDate;
 	}
 
-	public void setExpiryDate(Date expiryDate) {
+	public void setExpiryDate(String expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 

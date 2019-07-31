@@ -104,6 +104,11 @@ public class UserLogin {
 		this.apiKey = apiKey;
 	}
 	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", passwordHash=" + passwordHash + ", apikey=" + apiKey + ", passwordSalt=" + passwordSalt + "]";
+	}
+	
 	
 	
 }

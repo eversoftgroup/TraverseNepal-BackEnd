@@ -31,9 +31,9 @@ public class ItineraryListController {
 	AuthService authService;
 	
 	@RequestMapping(value="/getall", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<Itinerary> getAllItinerary(@RequestParam(value="key") String key) {
+	public List<Itinerary> getAllItinerary(@RequestParam(value="id") int id,@RequestParam(value="key") String key) {
 		if(authService.isValidAPIKey(key)) {
-			List<Itinerary> list = itineraryListService.getAllItinerary();
+			List<Itinerary> list = itineraryListService.getAllItinerary(id);
 			System.out.println("Itinerary List: " + list);
 			return list;
 		}else {

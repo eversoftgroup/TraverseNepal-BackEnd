@@ -3,6 +3,7 @@ package com.eversoft.traverse.service;
 import java.util.List;
 
 import com.eversoft.traverse.model.User;
+import com.eversoft.traverse.model.UserLogin;
 
 public interface UserService {
 	public boolean createUser(User user);

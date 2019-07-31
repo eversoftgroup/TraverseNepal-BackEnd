@@ -30,8 +30,8 @@ public class ItineraryListServiceimpl implements ItineraryListService{
 	}
 
 	@Override
-	public List<Itinerary> getAllItinerary() {
-		return itineraryListDao.getAllItinerary();
+	public List<Itinerary> getAllItinerary(int id) {
+		return itineraryListDao.getAllItinerary(id);
 	}
 
 	@Override

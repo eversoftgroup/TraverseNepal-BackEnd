@@ -3,6 +3,7 @@ package com.eversoft.traverse.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.eversoft.traverse.dao.ItineraryListDao;
+import com.eversoft.traverse.model.Answer;
 import com.eversoft.traverse.model.Itinerary;
 import com.eversoft.traverse.model.User;
 import com.eversoft.traverse.utility.HibernateUtil;
@@ -66,14 +68,17 @@ public class ItineraryListDaoimpl implements ItineraryListDao{
 	}
 	
 	@Override
-	public List<Itinerary> getAllItinerary() {
+	public List<Itinerary> getAllItinerary(int id) {
 		try
 	    {
 			  Session session = HibernateUtil.getSessionFactory().openSession();
 			  Transaction transaction = session.getTransaction();
 			  transaction.begin();
-//			  User user = (User)session.get(User.class, id);
-			  List<Itinerary> list = session.createCriteria(Itinerary.class).list();
+			  
+			  String hql = "FROM Itinerary itinerary WHERE itinerary.userId = " + id;
+			  Query query = session.createQuery(hql);
+			  List<Itinerary> list = query.list();
+			  
 			  System.out.println("Get ALl Itinerary Called");
 	         return list;
 	    } catch (Exception e) {

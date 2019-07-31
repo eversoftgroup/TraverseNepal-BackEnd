@@ -7,7 +7,7 @@ import com.eversoft.traverse.model.Itinerary;
 public interface ItineraryListDao {
 	public boolean createItinerary(Itinerary itinerary);
 	public boolean deleteItinerary(int id);
-	public List<Itinerary> getAllItinerary();
+	public List<Itinerary> getAllItinerary(int id);
 	public boolean updateItinerary(int id, Itinerary itinerary);
 	public Itinerary getItineraryById(int id);
 }
